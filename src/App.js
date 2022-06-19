@@ -14,6 +14,7 @@ import BookablesPage from "./components/Bookables/BookablesPage";
 import BookingsPage from "./components/Bookings/BookingsPage";
 import UsersPage from "./components/Users/UsersPage";
 import UserPicker from "./components/Users/UserPicker";
+import AvengersPage from "./components/Avengers/AvengersPage";
 
 export default function App () {
   return (
@@ -46,6 +47,12 @@ export default function App () {
                   <span>UsersPick</span>
                 </Link>
               </li>
+              <li>
+                <Link to="/avengers" className="btn btn-header">
+                  <FaCalendarAlt/>
+                  <span>Avengers</span>
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -57,6 +64,7 @@ export default function App () {
           <Route path="/bookables" element={<BookablesPage/>}/>
           <Route path="/users" element={<UsersPage/>}/>
           <Route path="/userspick" element={<UserPicker/>}/>
+          <Route path="/avengers" element={<AvengersPage/>}/>
         </Routes>
       </div>
     </Router>

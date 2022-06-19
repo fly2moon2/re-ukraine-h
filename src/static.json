@@ -163,5 +163,13 @@
     "Thursday",
     "Friday",
     "Saturday"
+  ],
+  "avengers": [
+    "Iron Man",
+    "Captain America",
+    "Dr. Strange",
+    "The Hulk",
+    "Spiderman",
+    "Captain Marvel"
   ]
 }
