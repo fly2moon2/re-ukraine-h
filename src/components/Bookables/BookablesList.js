@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {FaArrowRight,FaArrowLeft} from "react-icons/fa";
 
 // webpack 5 deprecated named export approach, only supports default exxport approach for json file
 // compile error "Should not import the named export..."
@@ -9,6 +10,8 @@ import {useState} from 'react';
 import datafile from "../../static.json";
 const { bookables } = datafile;
 
+
+
 export default function BookablesList () {
   const group = "Rooms";
   const bookablesInGroup = bookables.filter(b => b.group === group);
@@ -17,6 +20,15 @@ export default function BookablesList () {
   // useState - setBookableIndex as the update function when clicked
   const [bookableIndex, setBookableIndex] = useState(1);
 
+  function nextBookable () {
+    setBookableIndex(i => (i + 1) % bookablesInGroup.length);
+  }
+  function prevBookable () {
+    // rotate back to the last item after reaching the first item
+    setBookableIndex(i => i<=0 ? bookablesInGroup.length-1: (i - 1) % bookablesInGroup.length);
+    //setBookableIndex(i => (i - 1) % bookablesInGroup.length);
+  }
+
 /*   let bookableIndex = 1;
   function changeBookable (selectedIndex) {
     bookableIndex = selectedIndex;
@@ -24,6 +36,7 @@ export default function BookablesList () {
   }
  */
   return (
+    <div>
     <ul className="bookables items-list-nav">
       {bookablesInGroup.map((b, i) => (
         <li
@@ -45,5 +58,26 @@ export default function BookablesList () {
         </li>
       ))}
     </ul>
+    <p>
+        <button
+          className="btn"
+          onClick={prevBookable}
+          autoFocus
+        >
+          <FaArrowLeft/>
+          <span>Previous</span>
+        </button>
+      </p>
+    <p>
+        <button
+          className="btn"
+          onClick={nextBookable}
+          autoFocus
+        >
+          <FaArrowRight/>
+          <span>Next</span>
+        </button>
+      </p>
+    </div>
   );
 }

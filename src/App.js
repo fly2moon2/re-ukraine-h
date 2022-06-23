@@ -15,6 +15,7 @@ import BookingsPage from "./components/Bookings/BookingsPage";
 import UsersPage from "./components/Users/UsersPage";
 import UserPicker from "./components/Users/UserPicker";
 import AvengersPage from "./components/Avengers/AvengersPage";
+import AvengerPicker from "./components/Avengers/AvengerPicker";
 
 export default function App () {
   return (
@@ -57,6 +58,7 @@ export default function App () {
           </nav>
 
           <UserPicker/>
+          <AvengerPicker/>
         </header>
 
         <Routes>
@@ -65,6 +67,7 @@ export default function App () {
           <Route path="/users" element={<UsersPage/>}/>
           <Route path="/userspick" element={<UserPicker/>}/>
           <Route path="/avengers" element={<AvengersPage/>}/>
+          <Route path="/avengerpick" element={<AvengerPicker/>}/>
         </Routes>
       </div>
     </Router>
