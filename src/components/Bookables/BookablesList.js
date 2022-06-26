@@ -13,12 +13,16 @@ const { bookables } = datafile;
 
 
 export default function BookablesList () {
-  const group = "Rooms";
+  // 0207 - multiple levels of useState for group, then filter for bookableIndex
+  const [group, setGroup] = useState("Kit");
+  //const group = "Rooms";
   const bookablesInGroup = bookables.filter(b => b.group === group);
 
   // w/o managing the state, the click event won't work
   // useState - setBookableIndex as the update function when clicked
-  const [bookableIndex, setBookableIndex] = useState(1);
+  const [bookableIndex, setBookableIndex] = useState(0);
+  // 0207 - assigns an array of unique groupname to groups variable
+  const groups = [...new Set(bookables.map(b=>b.group))];  
 
   function nextBookable () {
     setBookableIndex(i => (i + 1) % bookablesInGroup.length);
@@ -37,6 +41,10 @@ export default function BookablesList () {
  */
   return (
     <div>
+    {/* 0207 - list unique groups   */}
+    <select value={group} onChange={(e)=>setGroup(e.target.value)}>
+      {groups.map(g=><option value={g} key={g}>{g}</option>)}
+    </select>
     <ul className="bookables items-list-nav">
       {bookablesInGroup.map((b, i) => (
         <li
