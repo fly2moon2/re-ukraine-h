@@ -165,11 +165,40 @@
     "Saturday"
   ],
   "avengers": [
-    "Iron Man",
-    "Captain America",
-    "Dr. Strange",
-    "The Hulk",
-    "Spiderman",
-    "Captain Marvel"
+    {
+      "id": 1,
+      "gender": "Male",
+      "title": "Iron Man"
+    },
+    {
+      "id": 2,
+      "gender": "Male",
+      "title": "Captain America"
+    },
+    {
+      "id": 3,
+      "gender": "Male",
+      "title": "Dr. Strange"
+    },
+    {
+      "id": 4,
+      "gender": "Female",
+      "title": "Captain Marvel"
+    },
+    {
+      "id": 5,
+      "gender": "Female",
+      "title": "The Black Widow"
+    },
+    {
+      "id": 6,
+      "gender": "Male",
+      "title": "The Hulk"
+    },
+    {
+      "id": 7,
+      "gender": "Male",
+      "title": "Spiderman"
+    }
   ]
 }

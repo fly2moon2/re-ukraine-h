@@ -6,7 +6,7 @@ export default function AvengerPicker () {
   return (
     <select>
       {avengers.map(u => (
-        <option key={u}>{u}</option>
+        <option key={u.id}>{u.title}</option>
       ))}
     </select>
   );
