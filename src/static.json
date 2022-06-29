@@ -168,37 +168,78 @@
     {
       "id": 1,
       "gender": "Male",
-      "title": "Iron Man"
+      "title": "Iron Man",
+      "films": [
+        0,
+        1,
+        2,
+        4
+      ]
     },
     {
       "id": 2,
       "gender": "Male",
-      "title": "Captain America"
+      "title": "Captain America",
+      "films": [
+        0,
+        1,
+        2,
+        3
+      ]
     },
     {
       "id": 3,
       "gender": "Male",
-      "title": "Dr. Strange"
+      "title": "Dr. Strange",
+      "films": [
+        0,
+        1,
+        2
+      ]
     },
     {
       "id": 4,
       "gender": "Female",
-      "title": "Captain Marvel"
+      "title": "Captain Marvel",
+      "films": [
+        0,
+        1     
+      ]
     },
     {
       "id": 5,
       "gender": "Female",
-      "title": "The Black Widow"
+      "title": "The Black Widow",
+      "films": [
+        0,
+        1,
+        2
+      ]
     },
     {
       "id": 6,
       "gender": "Male",
-      "title": "The Hulk"
+      "title": "The Hulk",
+      "films": [
+        0,
+        1
+      ]
     },
     {
       "id": 7,
       "gender": "Male",
-      "title": "Spiderman"
+      "title": "Spiderman",
+      "films": [
+        0,
+        1
+      ]
     }
+  ],
+  "films": [
+    "Avengers IV - the End",
+    "Avengers III",
+    "Avengers II - Ultron",
+    "Captain America",
+    "Captain Marvel"
   ]
 }
