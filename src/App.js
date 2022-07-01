@@ -8,7 +8,7 @@ import {
 import "./App.css";
 
 import {AiFillAccountBook, AiFillAndroid} from "react-icons/ai";
-import {FaCalendarAlt, FaDoorOpen, FaUsers} from "react-icons/fa";
+import {FaCalendarAlt, FaDoorOpen, FaRegCaretSquareRight, FaUsers} from "react-icons/fa";
 
 import BookablesPage from "./components/Bookables/BookablesPage";
 import BookingsPage from "./components/Bookings/BookingsPage";
@@ -17,8 +17,17 @@ import UserPicker from "./components/Users/UserPicker";
 import AvengersPage from "./components/Avengers/AvengersPage";
 import AvengerPicker from "./components/Avengers/AvengerPicker";
 import BookablersPage from "./components/Bookablers/BookablersPage";
+import {useState, useEffect} from "react";
 
 export default function App () {
+  // ch 4
+  const greetings = ["Hello", "Ciao", "Hola", "こんにちは"];
+  const [greetingsIndex, setGreetingsIndex]=useState(0);
+  useEffect(()=>{document.title=greetings[greetingsIndex];});
+  function updateGreeting(){
+    setGreetingsIndex(Math.floor(Math.random()*greetings.length));
+  }
+
   return (
     <Router>
       <div className="App">
@@ -66,6 +75,7 @@ export default function App () {
 
           <UserPicker/>
           <AvengerPicker/>
+          <button onClick={updateGreeting}>Say Hi</button>
         </header>
 
         <Routes>
