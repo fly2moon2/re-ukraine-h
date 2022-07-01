@@ -16,6 +16,7 @@ import UsersPage from "./components/Users/UsersPage";
 import UserPicker from "./components/Users/UserPicker";
 import AvengersPage from "./components/Avengers/AvengersPage";
 import AvengerPicker from "./components/Avengers/AvengerPicker";
+import BookablersPage from "./components/Bookablers/BookablersPage";
 
 export default function App () {
   return (
@@ -54,6 +55,12 @@ export default function App () {
                   <span>Avengers</span>
                 </Link>
               </li>
+              <li>
+                <Link to="/bookablers" className="btn btn-header">
+                  <FaDoorOpen/>
+                  <span>Bookablers</span>
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -68,6 +75,7 @@ export default function App () {
           <Route path="/userspick" element={<UserPicker/>}/>
           <Route path="/avengers" element={<AvengersPage/>}/>
           <Route path="/avengerpick" element={<AvengerPicker/>}/>
+          <Route path="/bookablers" element={<BookablersPage/>}/>
         </Routes>
       </div>
     </Router>

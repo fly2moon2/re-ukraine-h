@@ -30,6 +30,16 @@ export default function reducer (state, action) {
         bookableIndex: (state.bookableIndex + 1) % count
       };
 
+      case "PREV_BOOKABLE":
+        const counta = state.bookables.filter(
+          b => b.group === state.group
+        ).length;
+  
+        return {
+          ...state,
+          bookableIndex: (state.bookableIndex<=0 ? counta-1: (state.bookableIndex - 1) % counta)
+        };
+
     default:
       return state;
   }
