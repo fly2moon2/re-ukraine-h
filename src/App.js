@@ -24,9 +24,47 @@ export default function App () {
   const greetings = ["Hello", "Ciao", "Hola", "こんにちは"];
   const [greetingsIndex, setGreetingsIndex]=useState(0);
   useEffect(()=>{document.title=greetings[greetingsIndex];});
+
+
   function updateGreeting(){
     setGreetingsIndex(Math.floor(Math.random()*greetings.length));
   }
+
+// useeffect resize
+  const [size, setSize] = useState(getSize());
+ 
+  function getSize () {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
+  }
+ 
+  useEffect(() => {
+    function handleResize () {
+      setSize(getSize());
+    }
+ 
+    window.addEventListener('resize', handleResize);
+ 
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+ 
+  // list 4.4 useeffect control when to trigger (only when user is changed)
+  const [user, setUser] = useState("Sanjiv");
+  
+  useEffect(() => {
+    const storedUser = window.localStorage.getItem("user");
+
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("user", user);
+  }, [user]);
+
 
   return (
     <Router>
@@ -76,6 +114,13 @@ export default function App () {
           <UserPicker/>
           <AvengerPicker/>
           <button onClick={updateGreeting}>Say Hi</button>
+          <p>Width: {size.width}, Height: {size.height}</p>
+          <select value={user} onChange={e => setUser(e.target.value)}>
+            <option>Jason</option>
+            <option>Akiko</option>
+            <option>Clarisse</option>
+            <option>Sanjiv</option>
+          </select>
         </header>
 
         <Routes>
