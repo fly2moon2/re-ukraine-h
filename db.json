@@ -43,6 +43,86 @@
       "notes": "Sanjiv lives your life to better understand your power-tantrums and architect empathic growth journeys that break the shell and distribute the yoke company-wide."
     }
   ],
+  "avengers": [
+    {
+      "id": 1,
+      "gender": "Male",
+      "title": "Iron Man",
+      "films": [
+        0,
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "gender": "Male",
+      "title": "Captain America",
+      "films": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "gender": "Male",
+      "title": "Dr. Strange",
+      "films": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "gender": "Female",
+      "title": "Captain Marvel",
+      "films": [
+        0,
+        1     
+      ]
+    },
+    {
+      "id": 5,
+      "gender": "Female",
+      "title": "The Black Widow",
+      "films": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 6,
+      "gender": "Male",
+      "title": "The Hulk",
+      "films": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "gender": "Male",
+      "title": "Spiderman",
+      "films": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "gender": "Male",
+      "title": "Wolfman",
+      "films": [
+        0,
+        1
+      ]
+    }
+  ],
   "posts": [
     {
       "id": 1,

@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react';
 import Spinner from "../UI/Spinner";
-import datafile from "../../static.json";
-const {users} = datafile;
+// static 
+// import datafile from "../../static.json";
+// const {users} = datafile;
 //import {users} from "../../static.json";
 
 export default function UserPicker () {
