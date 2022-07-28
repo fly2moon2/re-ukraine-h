@@ -1,6 +1,9 @@
 import reducer from "./reducer";
-import {useState, useReducer, Fragment} from 'react';
+import {useState, useReducer, useEffect, Fragment} from 'react';
 import {FaArrowRight,FaArrowLeft} from "react-icons/fa";
+// ch. 4 getData api
+import Spinner from "../UI/Spinner";
+import getData from "../../utils/api";
 
 // webpack 5 deprecated named export approach, only supports default exxport approach for json file
 // compile error "Should not import the named export..."
@@ -9,20 +12,19 @@ import {FaArrowRight,FaArrowLeft} from "react-icons/fa";
 // import {bookables} from "../../static.json";
 // ii. default export (in 2 lines) is the only approach supported
 import datafile from "../../static.json";
-const { bookables, sessions, days } = datafile;
-
+//const { bookables, sessions, days } = datafile;
+const { sessions, days } = datafile;
 
 
 const initialState = {
-  group: "Rooms",
+  group: "xRooms",
   bookableIndex: 0,
   hasDetails: true,
-  bookables
+  //bookables
+  bookables:[],
+  isLoading:true,
+  error:false
 };
-
-
-
-
 
 
 
@@ -30,7 +32,7 @@ export default function BookablersList () {
   // 0207 - multiple levels of useState for group, then filter for bookableIndex
 
   // 0302 alternative w/ destructured states 
-  const [{group, bookableIndex, bookables, hasDetails}, dispatch] = useReducer(reducer, initialState);
+  const [{group, bookableIndex, bookables, hasDetails, isLoading, error}, dispatch] = useReducer(reducer, initialState);
   // const [state, dispatch] = useReducer(reducer, initialState);
   //const {group, bookableIndex, bookables, hasDetails} = state;
 
@@ -47,6 +49,33 @@ export default function BookablersList () {
 
   const bookable = bookablesInGroup[bookableIndex];
   //const [hasDetails, setHasDetails] = useState(false);
+
+
+  useEffect(() => {
+ 
+    dispatch({type: "FETCH_BOOKABLES_REQUEST"});
+ 
+    getData("http://localhost:3001/bookablers")
+ 
+      .then(bookables => dispatch({
+        type: "FETCH_BOOKABLES_SUCCESS",
+        payload: bookables
+      }))
+ 
+      .catch(error => dispatch({
+        type: "FETCH_BOOKABLES_ERROR",
+        payload: error
+      }));
+ 
+  }, []);
+
+  if (error){
+    return <p>{error.message}</p>
+  }
+
+  if (isLoading){
+    return <p><Spinner/>Loading bookablers...</p>
+  }
 
   function changeGroup (e) {
     dispatch({
