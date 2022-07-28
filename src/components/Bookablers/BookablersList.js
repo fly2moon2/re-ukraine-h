@@ -51,7 +51,28 @@ export default function BookablersList () {
   //const [hasDetails, setHasDetails] = useState(false);
 
 
+
+  // ch. 4. To avoid race conditions and to follow the convention of returning nothing or a cleanup function from the effect function, put async functions inside the effect function. 
   useEffect(() => {
+  async function runUseEffect(){
+    dispatch({type: "FETCH_BOOKABLES_REQUEST"});
+ 
+    getData("http://localhost:3001/bookablers")
+ 
+      .then(bookables => dispatch({
+        type: "FETCH_BOOKABLES_SUCCESS",
+        payload: bookables
+      }))
+ 
+      .catch(error => dispatch({
+        type: "FETCH_BOOKABLES_ERROR",
+        payload: error
+      }));
+    }
+    runUseEffect();
+  }, []);
+
+/*   useEffect(() => {
  
     dispatch({type: "FETCH_BOOKABLES_REQUEST"});
  
@@ -67,7 +88,7 @@ export default function BookablersList () {
         payload: error
       }));
  
-  }, []);
+  }, []); */
 
   if (error){
     return <p>{error.message}</p>
